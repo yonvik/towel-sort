@@ -31,12 +31,20 @@ module.exports = function towelSort (matrix) {
 
 
   
-  for(let i = 0; i < matrix.length; i++){
-    if(i % 2) { 
-      matrix[i].reverse(); 
-    }
-}
-return matrix.reduce((acc, subArray) => acc.concat(subArray), [])
+ // for(let i = 0; i < matrix.length; i++){
+ //   if(i % 2) { /
+  //    matrix[i].reverse(); 
+ //   }
+//}
+//return matrix.reduce((acc, subArray) => acc.concat(subArray), [])
+
+if (!matrix) return [];
+let answer = matrix.reduce((res, arr, i) => {
+  arr = i%2 == 1 ? arr.reverse() : arr;
+  return res.concat(arr);
+}, [])
+return answer;
+
 } 
 
   
